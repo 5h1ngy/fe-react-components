@@ -1,0 +1,164 @@
+import { Meta, Canvas, Story } from '@storybook/blocks';
+import * as ActionBarStories from './component.stories';
+
+<Meta of={ActionBarStories} />
+
+# ActionBar
+
+Il componente `ActionBar` è un elemento di navigazione versatile che visualizza un gruppo di pulsanti azione e breadcrumb di navigazione in modo flessibile e reattivo. Questo componente è progettato per adattarsi alla larghezza del suo contenitore, rendendolo ideale per applicazioni web responsive.
+
+## Proprietà Principali
+
+### `actions`
+- **Descrizione**: Array di pulsanti di azione da visualizzare nella barra. Ogni pulsante è rappresentato da un'icona.
+- **Tipo**: `Array`
+- **Esempio**:
+
+  ```jsx
+  actions={[
+    { icon: <i className="fas fa-cog" /> },
+    { icon: <i className="fas fa-bell" /> },
+  ]}
+  ```
+
+### `navigation`
+- **Descrizione**: Array di oggetti breadcrumb che mostrano la navigazione. Ogni oggetto contiene un'etichetta (`label`) e un collegamento (`href`).
+- **Tipo**: `Array`
+- **Esempio**:
+
+  ```jsx
+  navigation={[
+    { label: 'Home', href: '/' },
+    { label: 'Dashboard', href: '/dashboard' },
+  ]}
+  ```
+
+### `position`
+- **Descrizione**: Posizione verticale dell'ActionBar. Accetta una proprietà `top` che definisce la distanza dall'alto del contenitore padre.
+- **Tipo**: `Object`
+- **Valori**: `{ top: '0' } | { top: 'inherit' }`
+- **Default**: `'0'`
+
+### `variant`
+- **Descrizione**: Stile dell'ActionBar basato su varianti predefinite.
+- **Tipo**: `string`
+- **Valori**:
+  - `'rounded'`: L'ActionBar avrà bordi arrotondati.
+  - `'shadow'`: Aggiunge un'ombra sotto l'ActionBar.
+  - `'minimal'`: Riduce la dimensione dell'ActionBar, utile per layout compatti.
+- **Default**: `'rounded'`
+- **Esempio**:
+
+  ```jsx
+  <ActionBar
+    variant="shadow"
+    actions={[...]}
+    navigation={[...]}
+    position={{ top: '0' }}
+  />
+  ```
+
+## Utilizzo del Componente
+
+### Esempio Base
+
+```jsx
+<ActionBar
+  actions={[
+    { icon: <i className="fas fa-cog" /> },
+    { icon: <i className="fas fa-bell" /> },
+  ]}
+  navigation={[
+    { label: 'Home', href: '/' },
+    { label: 'Dashboard', href: '/dashboard' },
+  ]}
+  position={{ top: '0' }}
+  variant="rounded"
+/>
+```
+
+In questo esempio, l'ActionBar utilizza la variante `rounded`, con pulsanti azione e breadcrumb di navigazione.
+
+<Canvas of={ActionBarStories.Default} />
+
+---
+
+### Storie
+
+### Default
+Mostra il componente `ActionBar` con la configurazione predefinita. Usa la variante `rounded` per avere i bordi arrotondati.
+
+<Canvas>
+  <Story of={ActionBarStories.Default} />
+</Canvas>
+
+### Minimal
+Mostra il componente `ActionBar` con lo stile `minimal`, riducendo l'altezza della barra e dei pulsanti.
+
+<Canvas>
+  <Story of={ActionBarStories.Minimal} />
+</Canvas>
+
+### Shadow
+Mostra il componente `ActionBar` con la variante `shadow`, che aggiunge un'ombra leggera sotto la barra per enfatizzarne la presenza.
+
+<Canvas>
+  <Story of={ActionBarStories.Shadow} />
+</Canvas>
+
+### Rounded Position
+Questa variante visualizza l'ActionBar con la proprietà `top` impostata su `inherit`, il che consente di arrotondare i bordi inferiori della barra.
+
+<Canvas>
+  <Story of={ActionBarStories.RoundedPosition} />
+</Canvas>
+
+---
+
+## Comportamento Responsive
+
+L'`ActionBar` è progettata per adattarsi automaticamente alla larghezza del suo contenitore principale. Grazie all'uso di `Flexbox`, gli elementi interni (breadcrumb e pulsanti) si dispongono in modo coerente sia su desktop che su dispositivi mobili. Puoi cambiare il layout della barra tramite CSS e Chakra UI, sfruttando al massimo la sua flessibilità e le sue varianti stilistiche.
+
+### Esempio Responsive
+
+```jsx
+<Box width={['100%', '80%', '60%']} margin="auto">
+  <ActionBar
+    variant="shadow"
+    actions={[...]}
+    navigation={[...]}
+    position={{ top: '0' }}
+  />
+</Box>
+```
+
+In questo esempio, l'ActionBar si adatta alla larghezza del contenitore genitore, utilizzando un layout flessibile e responsive.
+
+---
+
+## Personalizzazione
+
+Puoi personalizzare ulteriormente il componente modificando il tema di Chakra UI, definendo nuove varianti o stili specifici. Ecco un esempio di estensione del tema per aggiungere una nuova variante:
+
+```jsx
+const customTheme = extendTheme({
+  components: {
+    ActionBar: {
+      variants: {
+        customStyle: {
+          container: {
+            bg: 'red.500',
+            boxShadow: 'lg',
+          },
+          button: {
+            bg: 'yellow.400',
+            _hover: {
+              bg: 'yellow.600',
+            },
+          },
+        },
+      },
+    },
+  },
+});
+```

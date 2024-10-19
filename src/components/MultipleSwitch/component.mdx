@@ -1,0 +1,36 @@
+{/* MultipleSwitch.mdx */}
+
+import { Canvas, Meta } from '@storybook/blocks';
+
+import * as MultipleSwitchStories from './component.stories';
+
+<Meta of={MultipleSwitchStories} />
+
+# MultipleSwitch
+
+Il componente `MultipleSwitch` visualizza un gruppo di pulsanti opzione e pulsanti slider. È utile per consentire agli utenti di effettuare selezioni multiple o alternare tra diverse opzioni.
+
+<Canvas of={MultipleSwitchStories.Example} />
+
+#### Proprietà
+
+- `options`: Array di oggetti opzione per il gruppo di pulsanti.
+- `sliderOptions`: Array di oggetti opzione per il gruppo slider.
+- `onClickOption`: Funzione callback chiamata quando viene cliccato un pulsante opzione.
+- `onClickSliderOption`: Funzione callback chiamata quando viene cliccato un pulsante slider.
+
+#### Esempio di utilizzo
+
+```jsx
+<MultipleSwitch
+  options={[
+    { key: 'option1', icon: <SettingsIcon />, enable: true },
+    { key: 'option2', icon: <AddIcon />, enable: false },
+  ]}
+  sliderOptions={[
+    { key: 'slider1', icon: <SunIcon />, enable: false },
+    { key: 'slider2', icon: <MoonIcon />, enable: true },
+  ]}
+  onClickOption={(key, state) => console.log(`Option ${key} is now ${state}`)}
+  onClickSliderOption={(key, state) => console.log(`Slider option ${key} is now ${state}`)}
+/>

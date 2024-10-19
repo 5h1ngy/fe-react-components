@@ -1,0 +1,28 @@
+.container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    .options {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+    }
+
+    .slider {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        padding: 4px;
+        border-radius: 50px;
+        width: fit-content;
+        height: fit-content;
+    }
+
+    .button {
+        padding: 8px;
+        border-radius: 50px;
+    }
+}
