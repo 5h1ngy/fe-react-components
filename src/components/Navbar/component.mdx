@@ -1,0 +1,46 @@
+import { Meta, Canvas, Story } from '@storybook/blocks';
+import * as Navbar from './component.stories';
+
+<Meta of={Navbar} />
+
+# Navbar
+
+Il componente `Navbar` è un elemento di navigazione che visualizza un gruppo di icone e etichette di navigazione. Può essere configurato con vari colori di tema e permette di invertire i colori tramite la proprietà `inverted`.
+
+<Canvas>
+  <Story name="Default">
+    <Navbar.Default />
+  </Story>
+</Canvas>
+
+
+## Proprietà Principali
+
+### `inverted`
+- **Descrizione**: Se `true`, inverte i colori primario e secondario.
+- **Tipo**: `boolean`
+- **Default**: `false`
+
+### `navigation`
+- **Descrizione**: Array di oggetti di navigazione, ognuno contenente un'icona, un'etichetta e lo stato abilitato.
+- **Tipo**: `Array<{ key: string, label: string, icon: ReactElement, enable: boolean }>`
+
+### `onClick`
+- **Descrizione**: Funzione chiamata quando si fa clic su un'icona di navigazione.
+- **Tipo**: `(key: string, enable: boolean) => void`
+
+---
+
+## Esempi di utilizzo
+
+### Esempio di base
+
+```jsx
+<Navbar
+  navigation={[
+    { key: 'home', label: 'Home', icon: <SettingsIcon />, enable: true },
+    { key: 'settings', label: 'Settings', icon: <AddIcon />, enable: false },
+  ]}
+  onClick={(key, enable) => console.log(`Clicked ${key}, enabled: ${enable}`)}
+  inverted={false}
+/>

@@ -35,7 +35,6 @@
   "include": [
     "src",
     ".storybook",
-    "src/types"
   ],
   "exclude": [
     "node_modules",

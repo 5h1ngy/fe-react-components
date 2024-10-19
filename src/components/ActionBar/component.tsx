@@ -14,8 +14,7 @@ const ActionBar: React.FC<ActionBarProps> = ({
 
     return (
         <Flex
-            className={`${styles.container} ${position.top === 'inherit' ? styles['container--rounded'] : styles['container--shadow']
-                }`}
+            className={`${styles.container} ${position.top === 'inherit' ? styles['container--rounded'] : styles['container--shadow']}`}
             style={{ top: position.top }}
             sx={chakraStyles.container}
         >
