@@ -1,10 +1,11 @@
 import React from 'react';
 import { Flex, IconButton, Stack, Text, useMultiStyleConfig } from '@chakra-ui/react';
-import { NavbarProps } from './component.types';
+import { Props } from './component.types';
 import styles from './component.module.scss';
 
-const Navbar: React.FC<NavbarProps> = ({ inverted, navigation, onClick }) => {
-    const chakraStyles = useMultiStyleConfig('Navbar', { variant: inverted ? 'inverted' : 'default' });
+const Navbar: React.FC<Props> = (props) => {
+    const { inverted, navigation, onClick } = props
+    const chakraStyles = useMultiStyleConfig('Component.Navbar', { variant: inverted ? 'inverted' : 'default' });
 
     return (
         <Flex className={styles.container}>

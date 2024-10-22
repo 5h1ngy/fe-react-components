@@ -1,0 +1,14 @@
+.container {
+    .content {
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+        box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.1);
+
+        .body {
+            min-height: 160px;
+            align-items: center;
+            justify-content: center;
+            align-content: center;
+        }
+    }
+}

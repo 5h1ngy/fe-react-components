@@ -7,7 +7,7 @@ export interface NavigationItem {
     enable: boolean;
 }
 
-export interface NavbarProps {
+export interface Props {
     inverted: boolean;
     navigation: Array<NavigationItem>;
     onClick: (key: string, enable: boolean) => void;

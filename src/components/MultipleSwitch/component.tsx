@@ -3,18 +3,14 @@ import { IconButton, HStack, useMultiStyleConfig } from '@chakra-ui/react';
 import { MultipleSwitchProps, Option, SliderOption } from './component.types';
 import style from './component.module.scss';
 
-const MultipleSwitch: React.FC<MultipleSwitchProps> = ({
-  options,
-  sliderOptions,
-  onClickOption,
-  onClickSliderOption,
-}) => {
-  const styles = useMultiStyleConfig('MultipleSwitch', {});
+const MultipleSwitch: React.FC<MultipleSwitchProps> = (props) => {
+  const { options, sliderOptions, onClickOption, onClickSliderOption } = props;
+  const styles = useMultiStyleConfig('Component.MultipleSwitch', {});
 
   const [buttons, setButtons] = useState<boolean[]>(
     options.map((button) => button.enable)
   );
-  
+
   const [sliderButtons, setSliderButtons] = useState<boolean[]>(
     sliderOptions.map((sliderButton) => sliderButton.enable)
   );

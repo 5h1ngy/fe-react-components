@@ -4,13 +4,9 @@ import { ChevronRightIcon } from '@chakra-ui/icons';
 import { ActionBarProps } from './component.types';
 import styles from './component.module.scss';
 
-const ActionBar: React.FC<ActionBarProps> = ({
-    actions,
-    navigation,
-    position,
-    variant = 'rounded',
-}) => {
-    const chakraStyles = useMultiStyleConfig('ActionBar', { variant });
+const ActionBar: React.FC<ActionBarProps> = (props) => {
+    const { actions, navigation, position, variant = 'rounded' } = props
+    const chakraStyles = useMultiStyleConfig('Component.ActionBar', { variant });
 
     return (
         <Flex
